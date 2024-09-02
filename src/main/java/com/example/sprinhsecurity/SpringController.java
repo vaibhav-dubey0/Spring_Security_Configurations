@@ -38,11 +38,20 @@ public class SpringController {
         return ResponseEntity.ok().body("Normal Admin");
     }
 
-    // GET method to retrieve all users
+    // GET method to retrieve all users   
     @GetMapping("/show")
     public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok().body(users);
+        List<User> u=userRepository.findAll();
+         return ResponseEntity.ok().body(u);
+        
     }
+
+    @GetMapping("/users")
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
+
+    
 
     // POST method to create a new user
      @PostMapping("/register")

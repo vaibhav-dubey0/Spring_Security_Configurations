@@ -50,7 +50,7 @@ import org.springframework.security.web.SecurityFilterChain;
             http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(requests -> requests
-                .requestMatchers("/login", "/register").permitAll()
+                .requestMatchers("/login", "/register", "/error","/show").permitAll()  // Make sure these are publicly accessible
                 .anyRequest().authenticated()
             )
             .formLogin(login -> login
